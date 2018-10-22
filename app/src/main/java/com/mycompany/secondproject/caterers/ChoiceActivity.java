@@ -5,18 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import com.mycompany.secondproject.MainActivity;
 import com.mycompany.secondproject.R;
 
 public class ChoiceActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ImageButton imageButton , imageButton1;
+    ImageView ib1 , ib2 , ib3 , ib4;
 
     public void initViews(){
-        imageButton = findViewById(R.id.imageButtonP);
-        imageButton1 = findViewById(R.id.imageButtonC);
-        imageButton.setOnClickListener(this);
-        imageButton1.setOnClickListener(this);
+        ib1 = findViewById(R.id.imageView3);
+        ib2 = findViewById(R.id.imageView4);
+        ib3 = findViewById(R.id.imageView);
+        ib4 = findViewById(R.id.imageView2);
+        ib3.setOnClickListener(this);
+        ib4.setOnClickListener(this);
+        ib1.setOnClickListener(this);
+        ib2.setOnClickListener(this);
     }
 
 
@@ -25,6 +31,7 @@ public class ChoiceActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
+        getSupportActionBar().hide();
         initViews();
     }
 
@@ -32,12 +39,22 @@ public class ChoiceActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
 
-        if (id == R.id.imageButtonP){
-           Intent intent = new Intent(ChoiceActivity.this,com.mycompany.secondproject.userUIActivity.class);
-           startActivity(intent);
+        if (id == R.id.imageView3 )  {
+            Intent intent = new Intent(ChoiceActivity.this,com.mycompany.secondproject.userUIActivity.class);
+            startActivity(intent);
         }
-        else {
+        if (id == R.id.imageView4) {
             Intent intent1 = new Intent(ChoiceActivity.this,CatererUIActivity.class);
+            startActivity(intent1);
+        }
+
+        if (id == R.id.imageView2 ){
+            Intent intent1 = new Intent(ChoiceActivity.this,AddCatererActivity.class);
+            startActivity(intent1);
+        }
+
+        if (id == R.id.imageView){
+            Intent intent1 = new Intent(ChoiceActivity.this,MainActivity.class);
             startActivity(intent1);
         }
     }

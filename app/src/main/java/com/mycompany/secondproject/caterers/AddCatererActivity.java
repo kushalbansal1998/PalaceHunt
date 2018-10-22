@@ -41,7 +41,7 @@ public class AddCatererActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_caterer);
 
-        getSupportActionBar().setTitle("Add Caterers");
+        getSupportActionBar().hide();
         initViews();
     }
 
